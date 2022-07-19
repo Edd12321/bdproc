@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+##########################################
+## Check the README.md for more details ##
+##########################################
+
+ID=$(id -u);
+if [ $ID -eq 0 ]
+then
+	REG=$(rdmsr -d 0x1FC)
+	if [ $(($REG & 1)) -eq 0 ]
+	then
+		# Enable BD PROCHOT
+		REG=$((REG+1));
+	else
+		# Disable BD PROCHOT
+		REG=$((REG-1));
+	fi
+
+	# Apply changes
+	wrmsr -a 0x1FC $REG;
+else
+	echo "You are not root!";
+	exit 1;
+fi
