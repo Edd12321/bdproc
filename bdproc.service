@@ -2,7 +2,7 @@
 Description=Disable BD PROCHOT
 
 [Service]
-ExecStart=/path/to/bdproc.sh
+ExecStart=/path/to/bdproc.sh -d
 RemainAfterExit=true
 Type=oneshot
 

@@ -4,3 +4,7 @@ This one-liner disables/enables BD PROCHOT, because it can cause performance iss
 If it gives you an error about some command not being found, make sure you have ```rdmsr``` and ```wrmsr``` installed. On Arch Linux, they can be installed by the following package (community repo must be enabled):
 
 ```sudo pacman -S msr-tools```
+
+## CLI arguments
+```-d``` to remain disabled regardless of current state
+```-e``` to remain enabled regardless of current state
